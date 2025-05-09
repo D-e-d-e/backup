@@ -16,28 +16,30 @@ _start:
 # completare la funzione fib nel campo di sotto
 
 fib:
-	bnez a0, else
+	bnez a0, else_if 		#if n == 0
 	li a0, 0
 	ret
-else:
-	li t0, 1
-	bne a0, t0, fib_rec
+else_if:
+	li s1, 1
+	bne a0, s1, fib_rec		#if n == 1
 	li a0, 1
 	ret
-fib_rec:
-	addi sp, sp, -8
+fib_rec:					#else recursion
+	addi sp, sp, -12
 	sw ra, 0(sp)
 	sw a0, 4(sp)
+	addi a0, a0, -1
 	
-	addi a0, a0, -1		#n-1
-	lw a0, 4(sp)
 	call fib
+	
 	mv t1, a0
-	addi a0, a0, -1		#n-2
+	sw t1, 8(sp)
+	lw a0, 4(sp)
+	addi a0, a0, -1
+	
 	call fib
-	add a0, a0, t1
 	
-	lw ra, 0(sp)
 	
-	addi sp, sp, 8
-	ret
+	
+	
+	
