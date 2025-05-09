@@ -1,0 +1,251 @@
+RISPOSTE ALLE DOMANDE
+
+	(1)Qual è la differenza principale tra il livello ISA e il livello di sistema operativo?
+	
+	La differenza principale tra il livello ISA e il livello di sistema operativo è la presenza di più istruzioni nel sistema operativo,
+	inoltre la memoria è organizzata in modo diverso.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Qual è la funzione principale del livello Digital Logic Level?
+	Questo livello è il livello più basso, rappresenta l'hardware, è composto da circuiti che eseguono programmi,
+	ci sono porte logiche composte da transistor.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Che cosa rappresenta l'ISA (Instruction Set Architecture)?
+	è il livello del linguaggio macchina.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(2)Perché i registri sono considerati più veloci ma più costosi rispetto alla memoria 
+	principale?
+	
+	I registri sono considerati più veloci ma più costosi rispetto alla memoria principale perchè sono presenti direttamente
+	all' interno della CPU, e quindi l'accesso non richiede caricamenti dalla memoria esterna. Inoltre i registri sono costruiti
+	con circuiti di memoria molto veloce come i flip-flop. Sono più costosi proprio perchè i circuiti avanzati che li compongono
+	sono particolarmente costosi.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(3)Qual è il ruolo del Program Counter (PC) nella CPU?
+	
+	Il ruolo del PC è quello di puntare all'istruzione successiva, è fondamentale per permettere l'esecuzione di istruzione come
+	i branch e i jump.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Quali sono le componenti principali della CPU e quali sono le loro funzioni?
+	unità di controllo: si occupa di capire il tipo dell'istruzione, e pilotare i bit di ALU e registri per far completare l'istruzione;
+	ALU: si occupa di eseguire le funzioni comandate dalla unità di controllo;
+	registri: sono unità di memoria molto veloce ma anche molto costosa, presenti in quantità molto limitata
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Perché i registri sono considerati veloci ma costosi?
+	sono veloci perchè sono presenti direttamente all'interno della CPU, non è richiesto accesso a memoria esterna.
+	La realizzazzione fisica richiede molto spazio, e la tecnologia utilizzata dev'essere performante, rendendoli costosi.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Qual è la differenza tra il Program Counter (PC) e l'Instruction Register (IR)?
+	Il PC contiene la prossima istruzione da eseguire, l'IR contiene l'istruzione in esecuzione del programma
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Spiega il ciclo fetch-decode-execute in dettaglio.
+	è il ciclo con il quale lavora la nostra CPU: è composto di 7 passi:
+	1-prendere l'istruzione dal PC e caricarla nell'IR{fetch}
+	2-aggiornare PC e farlo quindi puntare all'istruzione successiva{fetch}
+	3-determinare il tipo dell'istruzione che si sta per eseguire{decode}
+	4-se l'istruzione usa una word in memoria, determinare dove si trova{execute}
+	5-se necessario inserire la word in un registro della CPU{execute}
+	6-esegui l'istruzione
+	7-tornare al punto 1.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(4)Quali sono le differenze principali tra l’ALU e i registri?
+	
+	Innanzitutto, la ALU è un circuito combinatorio, mentre i registri sono circuiti sequenziali.
+	La ALU si occupa di eseguire le operazioni comandate dall'unità di controllo. I registri vengono utilizzati,se necessario,
+	per caricare dalla memoria word o informazioni necessarie per eseguire i calcoli.
+	Essendo unità di memoria molto costose, e l'accesso alla memoria esterna sia un'operazione costosa a livello di tempo,
+	è importante che se un' informazione viene usata più volte in un programma rimanga all'interno dei registri più a lungo
+	possibile.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(5)Spiega il ciclo fetch-decode-execute in breve.
+	
+	Il ciclo di fetch-decode-execute è utilizzato dalla nostra CPU per eseguire qualsiasi tipo di istruzioni;
+	La parte di fetch consiste nel guardare a che istruzione punta il PC, e spostarla nell IR.
+ 	Il program counter viene ora incrementato.
+	La parte di decode consiste nel capire il tipo di istruzione che bisogna eseguire(unità di controllo).
+	Infine, la parte di execute si occupa di caricare eventuali dati dalla memoria nei registri e utilizzarli per completare le operazioni
+	comandate dall'unità di controllo.
+	Ora il processo riprende dall'inizio.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Quali fattori influenzano le prestazioni di un processore?
+	Il throughput e il tempo di esecuzione.
+	il throughput: numero di task eseguiti nell'unità di tempo.
+	tempo di esecuzione si divide in:
+	- Tempo di CPU utente: tempo richiesto per la computazione di un determinato programma;
+	- tempo di CPU di sistema: tempo impiegato dalla CPU per eseguire le funzioni di sistema operativo necessarie per l'esecuzione
+	  di un programma.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Come si calcola il tempo di CPU? Scrivi la formula e spiegane ogni termine.
+	TEMPO DI CPU = (numero di istruzioni) * cpi / frequenza di clock
+	cpi= clock per istruzione
+	frequenza di clock: durata di un ciclo di clock.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Che cos’è un’architettura RISC e quali vantaggi offre rispetto a un’architettura CISC?
+	reduced instruction set computer, è un'architettura che consiste nell avere un numero ridotto di istruzioni, tramite la combinazione
+	di queste si eseguono le istruzioni più complesse.
+	I vantaggi rispetto a un'architettura CISC sono l'efficienza e consumo: avendo meno istruzioni i programmi sono più veloci,
+	le CPU sono più semplici da progettare e c'è minore consumo di energia.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(6)Quali sono i vantaggi di avere un set di istruzioni ridotto (RISC)?
+	I vantaggi di avere un set di istruzioni ridotto per svolgere i compiti più semplicidono: maggior velocità d'esecuzione 
+	ed un consumo energetico ridotto.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(7)Perché ogni indirizzo di memoria in RISC-V referenzia un byte?
+	In RISC-V ogni indirizzo di memoria referenzia il byte meno significativo del dato. Questo per tener fede al principio
+	di semplicità e coerenza su cui si fonda l'architettura RISC-V. Questo rende possibile l'accesso a qualsiasi tipo di dato 
+	contenuto in memoria, che siano word, double word, half word, utilizzando celle di memoria contigue.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(8)Come cambieresti il segno di un valore in un registro utilizzando l’istruzione sub?
+	
+	Supponendo di avere in t0 il valore da invertire e di voler salvare in t1 in valore invertito farei:
+	sub t1, zero, t0
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(9)Qual è la differenza tra le istruzioni lw e lbu?
+	
+	In entrambi i casi si tratta di un istruzione di load, ovvero caricamento di un dato dalla memoria. 
+	lw carica una word dalla memoria(4 byte)
+	lbu carica un byte damma memoria e lo interpreta come unsigned.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(10)Spiega il formato di tipo R per il linguaggio macchina di RISC-V.
+
+	Il formato di tipo R(register) permette la rappresentazione di tutte quelle istruzioni che richiedono l'utilizzo di 3 registri,
+	uno di destinazione(dr) e due registri operandi(rs1,rs2). I 32 bit sono occupati in questo modo:
+	7 bit per il codop, 7 e 3 per funz7 e funz3: questi 17 bit si occupano di rappresentare il tipo di istruzione da eseguire,
+	in caso non fossero necessari i bit di funz7 e/o funz3 sono 0.
+	15 bit per rappresentare i 3 registri( 5 ciascuno). Ogni registro si rappresenta con 5 bit perché sono presenti 32 registri
+	nela CPU, quindi 5 bit sono sufficienti per rappresentarli tutti(numeri da 0 a 2^5 - 1).
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(11)Qual è la differenza tra uno shift logico a destra e uno shift aritmetico a destra?
+
+	La differenza principale tra uno shift aritmetico a destra e uno shift logico a destra è l'estensione del segno, che avviene
+	solamente nello shift aritmetico. Utilizzando quest'ultimo è possibile effettuare una divisione per 2^i dove i è il valore indicato
+	nell' istruzione srai x1,x1,i.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(12)A cosa serve l’istruzione and in un contesto pratico?
+
+	In un contesto pratico, utilizzare l'istruzione and serve a "estrarre bit", più nel dettaglio, tramite la creazione di una maschera,
+	permette di estrarre da un certo valore i bit impostati a 1.
+	Ad esempio:
+	[01010101] and
+	[11111000] =
+	[01010000]
+	Quello che è successo è che abbiamo estratto i 4 bit più significativi di un valore tramite una maschera(secondo operando).
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(13)In che modo le istruzioni di salto condizionato possono essere usate per implementare
+	un ciclo for?
+	
+	Le istruzioni di salto condizionato (come beq, blt, bgt, ble,bge) sono comunemente utilizzate per implementare un ciclo for.
+	Questo avviene impostando un registro con il valore dell'indice desiderato. Si usa un etichetta prima dell' istruzione 
+	di salto in modo da permettere il corretto loop. Nel caso del for si usa comunemente bge/ble (registro dell' indice), (registro del
+	dato con cui paragonare l'indice), (etichetta di fine loop).
+	All' interno del ciclo for si eseguono le istruzioni desiderate ed alla fine si incrementa/decrementa l'indice e si esegue
+	un'istruzione di salto incondizionato (j FOR).
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(14)Qual è il formato delle istruzioni di salto condizionato e quali offset può rappresentare?
+	
+	Il formato delle istruzioni di salto condizionato è il formato SB, i 32 bit sono divisi:
+	10 bit per codop e funz3;
+	10 bit per i 2 registri che vengono confrontati;
+	e i restanti bit(12) sono occupati dall'immediato, diviso in 4 parti, questo succede per permettere ai registri di mantenere
+	la stessa posizione con la quale sono implementati nel formato R.
+	L' immediato consente di rappresentare offset da -4096 a 4094. Questo perché si utilizza un 13 bit come meno significativo
+	e lo si imposta sempre a 0. Questo permette la rappresentazione di soli offset pari, perchè un offset dispari sarebbe privo di
+	senso.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(15)Qual è la formula per calcolare il tempo di CPU, e quali sono i suoi parametri principali?
+	La formula per calcolare il tempo di CPU è:
+	numero di istruzioni * cpi / frequenza di clock.
+	Il numero di istruzioni da eseguire è un parametro che indica il numero di istruzioni da eseguire per completare con successo
+	l'esecuzione del programma;
+	I cpi sono i cicli di clock per istruzione, ed è un parametro che stabilisce quanto velocemente la CPU esegue una data istruzione.
+	Infine, la frequenza di clock è la durata di un ciclo di clock.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	(16)Come il valore dei CPI (Cicli di Clock per Istruzione) influisce sulle prestazioni 
+	del processore?
+	
+	Più il valore dei CPI è basso, più la CPU è veloce nell' eseguire un'istruzione.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Cos'è un linguaggio Assembly e qual è la sua relazione con il linguaggio macchina?
+	un linguaggio assembly è ottenuto dalle istruzioni del livello ISA i cui codici numerici sono sostituiti da codici mnemonici.
+	L'assembly è molto vicino al linguaggio macchina, c'è quasi una corrispondenza 1 a 1 con le istruzioni.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Qual è il ruolo del linker nel processo di creazione di un eseguibile?
+	Il linker collega i vari moduli oggetto in modo da creare un unico eseguibile.
+	Fonde gli spazi di indirizzamento di ogni modulo oggetto creandone uno unico e lineare, lo fa in questo modo:
+	- costruisce una tabella di ogni modulo oggetto e la sua lunghezza
+	- assegna un indirizzo di inizio ad ogni modulo oggetto
+	- trova tutte le istruzioni che accedono alla memoria e sostituisce gli indirizzi con una relocation costant che corrisponde all'
+	  indirizzo di partenza del suo modulo
+	- trova tutte le istruzioni che fanno riferimento ad altri moduli e le aggiorna con l'indirizzo corretto
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Come il linker gestisce gli indirizzi di memoria nei vari moduli oggetto?
+	Il linker prima trova tutte le istruzioni di accesso alla memoria nel modulo, poi le sostituisce con una relocation costant che
+	corrisponde all'indirizzo di partenza del suo modulo
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Qual è la differenza tra una relocation costante e un riferimento esterno?
+	la relocation costant è usata per sostituire le istruzioni di accesso alla memoria con un numero che corrisponde all'indirizzo
+	di partenza del suo modulo; mentre un riferimento esterno è usato per le istruzioni che fanno riferimento a moduli esterni 
+	e consiste nel corretto indirizzo del modulo contenente l'istruzione.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Quali sono i vantaggi di usare un linker separato rispetto all'integrazione diretta dei moduli?
+	i vantaggi sono che il codice è più riutilizzabile, la compilazione è più rapida.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Quali sono i compiti principali del loader durante l'esecuzione di un programma?
+	Il loader si occupa di prendere l'eseguibile(che viene memorizzato in memoria secondaria dal linker) e lo fa diventare
+	un processo, caricandolo in memoria centrale ed avviandone l'esecuzione.
+	Procede così:
+	- legge l'intestazione per determinare la dimensione del programma e dei dati
+	- riserva uno spazio in memoria sufficiente per contenerli
+	- copia il programma e i dati nello spazio riservato
+	- copia eventuali parametri passati al main nello stack
+	- inizializza tutti i registri e lo stack pointer
+	- salta ad una procedura che copia i parametri dallo stack ai registri e che poi invoca il main
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Cosa significa "far diventare un eseguibile un processo"?
+	Significa prendere l'eseguibile del programma in memoria e trasformarlo in un'entità attiva in esecuzione
+	nella memoria centrale del computer.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Perché il loader copia i parametri nello stack prima dell'esecuzione del programma?
+	Questo accade per garantire che il programma possa accedere ai dati necessari al suo funzionamento quando inizia
+	l'esecuzione.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Qual è la differenza tra collegamento statico e collegamento dinamico?
+	Il collegamento statico fa diventare le funioni di libreria parte del codice eseguibile, mettendoci tutto il codice 
+	oggetto delle librerie; mentre il collegamento dinamico carica le funzioni di libreria solo dopo l'inizio dell'
+	esecuzione del programma.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Quali sono i vantaggi e gli svantaggi delle librerie collegate staticamente?
+	Lo svantaggio del collegamento statico è la dimensione del file: infatti ogni funzione di libreria viene caricata
+	indipendentemente dal suo utilizzo.
+	Il vantaggio è che questo rende il codice non soggetto a bug legati a cambi di versione, dato che una volta che
+	l'eseguibile è stato creato le librerie non si cambiano(salvo ricompilazione).
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Cosa significa "lazy loading" nel contesto delle librerie dinamiche?
+	"lazy loading" significa che ogni procedura viene caricata solamente dopo la sua prima chiamata.
+	---------------------------------------------------------------------------------------------------------------------------------------
+	Come il sistema operativo gestisce le DLL durante l'esecuzione di un programma?
+	Le DLL(Dynamically linked libraries) vengono gestite in modo dinamico: le funzioni di libreria non vengono
+	caricate finchè non si esegue il programma.
+	
+	
+	03/05/2025
+	1-Cos'è il linguaggio Assembly e qual è la relazione con il linguaggio macchina?
+	Il linguaggio Assembly è un linguaggio che ottiene le sue istruzioni dalle istruzioni ISA sostituendo i codici binari con
+	codici mnemonici; questo lo rende un linguaggio particolarmente vicino a quello macchina
+	
+	2-Quali vantaggi offrono le etichette simboliche nel linguaggio Assembly?
+	Le etichette simboliche permettono di indicare un indirizzo in modo mnemonico, il PC sa che in quel punto può esserci
+	un salto, quindi si salverà nella symbol table nella prima lettura il valore di quella etichetta
+	
+	3-Cosa sono le pseudo-istruzioni e in che modo differiscono dalle istruzioni ISA?
+	Le pseudo istruzioni sono istruzioni presenti solament in assembly e non linguaggio macchina che rendono più leggibile il codice:
+	racchiudono una o più istruzioni che poi vengono tradotte nelle rispettive istruzioni dall'assemblatore.
+	
+	4-Scrivi un esempio di macro in Assembly e spiega come semplifica il lavoro del programmatore.
+	Una macro è una sequenza di codici che vengono salvate con un etichetta. Da quel salvataggio in poi il compilatore ogni volta che 
+	incontra la macro in questione la sostituisce con le righe di codice corrispondenti. Questo rende più facile il lavoro del programmatore.
+
+
+
+
+
+
